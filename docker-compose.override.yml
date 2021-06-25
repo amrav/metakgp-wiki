@@ -5,10 +5,11 @@ services:
     volumes:
       - db-volume:/var/lib/mysql
   nginx:
+    container_name: 'wiki-nginx'
     volumes:
       - mediawiki-volume:/srv/mediawiki
-    ports:
-      - "${SERVER_PORT:-8080}:80"
+    networks:
+      nginx-network:
   php:
     volumes:
       - mediawiki-volume:/srv/mediawiki
@@ -19,3 +20,6 @@ services:
 volumes:
   mediawiki-volume:
   db-volume:
+
+networks:
+  nginx-network:
