@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-buster
+FROM php:8.0-fpm-buster
 
 RUN apt-get -qq update && apt-get -qq install -y \
       git wget unzip
